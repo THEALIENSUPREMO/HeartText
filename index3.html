@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Heart - Exact Version</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+svg{
+    width:900px;
+    height:800px;
+}
+
+text{
+    fill:#ff4da6;
+    font-size:26px;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:capitalize;
+    filter:
+        drop-shadow(0 0 5px #ff4da6)
+        drop-shadow(0 0 15px #ff1493)
+        drop-shadow(0 0 30px #ff1493)
+        drop-shadow(0 0 50px #ff1493);
+}
+</style>
+</head>
+
+<body>
+
+<svg viewBox="0 0 1000 900">
+
+    <!-- Forma realista del corazón -->
+    <path id="heartPath"
+        d="
+        M500,750
+        C200,500 200,250 500,350
+        C800,250 800,500 500,750
+        "
+        fill="transparent"
+    />
+
+    <text>
+        <textPath href="#heartPath" startOffset="0%">
+            <tspan id="textContent"></tspan>
+            <animate attributeName="startOffset"
+                     from="0%"
+                     to="100%"
+                     dur="12s"
+                     repeatCount="indefinite"/>
+        </textPath>
+    </text>
+
+</svg>
+
+<script>
+// Genera muchas repeticiones automáticamente
+let phrase = "I love you ";
+let repeatText = phrase.repeat(60); // cantidad de repeticiones
+document.getElementById("textContent").textContent = repeatText;
+</script>
+
+</body>
+</html>
